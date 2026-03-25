@@ -12,7 +12,11 @@ class Question(models.Model):
 
     # 判断问题是否在一天内发布
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        # bug: 如果是未来的时间也会判断是在最近发布，比如30天后的时间
+        # return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        # fixed:
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
 
 class Choice(models.Model):
