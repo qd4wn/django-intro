@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+  </head>
+  <body>
+    <h2>{{ question.question_text }}</h2>
+    <!-- django 反向对象管理获取问题对应的选项对象 -->
+    <ul>
+      {% for choice in question.choice_set.all %}
+      <li>{{ choice.choice_text }}</li>
+      {%endfor%}
+    </ul>
+  </body>
+</html>
