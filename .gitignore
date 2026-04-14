@@ -28,3 +28,7 @@ db.sqlite3
 Thumbs.db
 .idea/
 .vscode/
+
+# Some Demo scripts
+demo.py
+test_hook.py
